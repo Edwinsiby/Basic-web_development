@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>dayout</title>
+    <link rel="icon" type="image/png" href="/static/dayout.pics/logo.png">
+    <link rel="stylesheet" href="/static/css/bootstrap.css">
+    <link rel="stylesheet" href="/static/dayout.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
+    <link href="https://fonts.googleapis.com/css?family=Raleway+Dots" rel="stylesheet" type="text/css">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+</head>
+<body style="background-color: black;">
+    <!-- NAVBAR -->
+    <nav class="navbar sticky-top navbar-expand-sm">
+      <div class="container-fluid">
+        <a class="navbar-brand text-white fw-bold" href="#" id="dayout">dayout holidays</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link active text-white" aria-current="page" href="./admin">USERS</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active text-white" aria-current="page" href="./admin">INBOX</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle text-white" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                ADMIN
+              </a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="./explore">{{.}}</a></li>
+                <li><a class="dropdown-item" href="./explore">Log Out</a></li>
+                <li><hr class="dropdown-divider"></li>
+                <li><a class="dropdown-item" href="./explore">Create Admin</a></li>
+              </ul>
+            </li>
+            <li class="nav-item ">
+              <a class="nav-link text-white" href="./contactus">UPDATE</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+  </nav>
+
+  <!--CONTAINER-->
+  
+  <div class="container-fluid" style="background-color: black;" >
+    <div class="container text-center" style="height: 50%;">
+      <div class="row">
+        <div class="col"  >
+          <a class="navbar-brand text-white fw-bold" href="/loadcreate" id="dayout">CREATE USER</a> 
+        </div>
+        <div class="col"  >
+        </div>
+        <div class="col">
+          <a class="navbar-brand text-white fw-bold" href="#" id="dayout">SEARCH USER</a>  
+        </div>
+        <div class="col" >
+        </div>
+        <div class="col" >
+          <a class="navbar-brand text-white fw-bold" href="/loadcreate" id="dayout">CREATE ADMIN</a>
+        </div>
+      </div>
+    </div>
+  </div>
+<div class="container-fluid">
+<h1>User List</h1>
+<table class="table table-dark table-hover table-bordered">
+    <thead>
+      <tr>
+        <th scope="col">No</th>
+        <th scope="col">Created date</th>
+        <th scope="col">User Name</th>
+        <th scope="col">Email address</th>
+        <th scope="col">Password</th>
+        <th scope="col">Role</th>
+        <th scope="col">Confirm</th>
+      </tr>
+    </thead>
+    <tbody>
+      {{range.data}}
+      <tr>
+          <td>{{.Id}}</td>
+          <td>2023-04-17 20:01:07.288162</td>
+          <td>{{.Name}}</td>
+          <td>{{.Email}}</td>
+          <td>**********</td>
+          <td>{{.Role}}</td>
+          <td><a href="/admin">Cancel</a></td>
+      </tr>
+      
+      <tr>
+        <td>{{.Id}}</td>
+        <td>2023-04-17 20:01:07.288162</td>
+        <form action="/update?id={{.Id}}" method="post">
+            <td><input type="text" name = "Username"></td>
+            <td><input type="text" name = "Usermail"></td>
+            <td><input type="text" name = "Password"></td>
+            <td><input type="text" name = "Role"></td>
+            <td><button>Save</button></td>
+        </form>
+        
+    </tr>
+    {{end}}
+  </tbody>
+</table>
+
+</div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
+  <script src="/static/js/bootstrap.js"></script> 
+</body>    
+</html>

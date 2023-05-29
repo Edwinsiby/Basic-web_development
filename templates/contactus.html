@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>dayout</title>
+    <link rel="icon" type="image/png" href="dayout.pics/logo.png">
+    <link rel="stylesheet" href="/static/css/bootstrap.css">
+    <link rel="stylesheet" href="/static/dayout.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
+    <link href="https://fonts.googleapis.com/css?family=Raleway+Dots" rel="stylesheet" type="text/css">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+    <!-- NAVBAR -->
+    <nav class="navbar sticky-top navbar-expand-sm">
+        <div class="container-fluid">
+          <a class="navbar-brand text-white fw-bold" href="#" id="dayout">dayout holidays</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link active text-white" aria-current="page" href="./dayout">Home</a>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle text-white" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  Packages
+                </a>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="./explore">College Tour & IV</a></li>
+                  <li><a class="dropdown-item" href="./explore">Group Tour</a></li>
+                  <li><a class="dropdown-item" href="./explore">Honeymoon</a></li>
+                  <li><hr class="dropdown-divider"></li>
+                  <li><a class="dropdown-item" href="./explore">Customised packages</a></li>
+                </ul>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle text-white" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  Profile
+                </a>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="./explore">{{.}}</a></li>
+                  <li><a class="dropdown-item" href="./explore">Log Out</a></li>
+                  <li><hr class="dropdown-divider"></li>
+                  <li><a class="dropdown-item" href="./explore">Switch User</a></li>
+                </ul>
+              </li>
+              <li class="nav-item ">
+                <a class="nav-link text-white" href="./contactus">Contact us</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+    </nav>
+
+<!-- SOCIAL MEDIA -->
+
+    <section>
+        <ul id="services">
+            <br>
+
+          <h2>Reach us on</h2>
+  
+          <li>
+            <div class="call">
+              <a href="https://www.google.com/search?q=dayout&rlz=1C1GCEA_enIN1022IN1022&oq=dayout&aqs=chrome..69i57j69i59j0i10i512j0i512j0i20i263i512j46i175i199i512j0i512l2j0i10i512l2.1444j0j15&sourceid=chrome&ie=UTF-8&tbs=lf:1,lf_ui:2&tbm=lcl&sxsrf=AJOqlzXl4JzgyuZ60kvGNlIGEc02SbRSwA:1676445180060&rflfq=1&num=10&rldimm=15926423011829290533&lqi=CgZkYXlvdXRIo4mf88atgIAIWgwQABgAIgZkYXlvdXSSARJwcml2YXRlX2d1ZXN0X3Jvb22qAQ4QASoKIgZkYXlvdXQoAA&ved=2ahUKEwj1m8X7_Jb9AhXCUHwKHcSvA1sQvS56BAhjEAE&sa=X&rlst=f#" target="_blank">
+                <i class="fa fa-phone" aria-hidden="true"></i>
+              </a>
+            </div>
+            <span>call</span>
+          </li>
+          <li>
+            <div class="whatsapp">
+              <a href="https://wa.me/c/918848965352" target="_blank">
+                <i class="fa fa-whatsapp" aria-hidden="true"></i>
+              </a>
+            </div>
+            <span>whatsapp</span>
+          </li>
+          <li>
+            <div class="instagram">
+              <a href="https://www.instagram.com/reel/CkvkwPnjlSp/?utm_source=ig_web_copy_link" target="_blank">
+                <i class="fa fa-instagram" aria-hidden="true"></i>
+              </a>
+            </div>
+            <span>Instagram</span>
+          </li>
+          <li>
+            <div class="facebook">
+              <a href="https://www.facebook.com/groups/427662752317951/" target="_blank">
+                <i class="fa fa-facebook" aria-hidden="true"></i>
+              </a>
+            </div>
+            <span>Facebook</span>
+          </li>
+          
+          <li>
+            <div class="youtube">
+              <a href="https://www.youtube.com/@KunalKVlogs">
+                <i class="fa fa-youtube" aria-hidden="true"></i>
+              </a>
+            </div>
+            <span>YouTube</span>
+          </li>
+          
+        </ul>
+      </section>
+    <!-- FORM -->
+    <div class="container">
+        <h2 class="text-center" >Book your Dayout</h2>
+        <p class="text-center">We offer you the most affordable tours to make your journey memorable,Enquire Now and a dayout Travel Expert will get back to you Immediately 24/7</p>
+        <br>
+        <form class="row g-3 needs-validation" novalidate onsubmit="sendEmail(); reset(); return false;">
+            <div class="col-md-4">
+              <label for="validationCustom01" class="form-label">First name</label>
+              <input type="text" class="form-control" id="validationCustom01"  required>
+              <div class="invalid-feedback">
+                Please provide your First name.
+              </div>
+            </div>
+            <div class="col-md-4">
+              <label for="validationCustom02" class="form-label">Last name</label>
+              <input type="text" class="form-control" id="validationCustom02"  required>
+              <div class="invalid-feedback">
+                Please provide your Last name.
+              </div>
+            </div>
+            <div class="col-md-4">
+              <label for="validationCustomUsername" class="form-label">Email</label>
+              <div class="input-group has-validation">
+                <input type="email" class="form-control" id="validationCustomUsername" aria-describedby="inputGroupPrepend" required>
+                <div class="invalid-feedback">
+                    Please provide a valid email.
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <label for="validationCustom03" class="form-label">Comment</label>
+              <input type="text" class="form-control" id="validationCustom03" required>
+              <div class="invalid-feedback">
+                Please provide your comments.
+              </div>
+            </div>
+            <div class="col-md-3">
+              <label for="validationCustom04" class="form-label">Package</label>
+              <select class="form-select" id="validationCustom04" required>
+                <option selected disabled value="">Choose...</option>
+                <option>College tour</option>
+                <option>Group tour</option>
+                <option>Family tour</option>
+                <option>Honeymoon</option>
+                <option>Customized</option>
+              </select>
+              <div class="invalid-feedback">
+                Please choose a package.
+              </div>
+            </div>
+            <div class="col-md-3">
+              <label for="validationCustom05" class="form-label">Budgect</label>
+              <input type="number" class="form-control" id="validationCustom05" required>
+              <div class="invalid-feedback">
+                Please provide your budgect.
+              </div>
+            </div>
+            <div class="col-12">
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="" id="invalidCheck" required>
+                <label class="form-check-label" for="invalidCheck">
+                  Agree to terms and conditions
+                </label>
+                <div class="invalid-feedback">
+                  You must agree before submitting.
+                </div>
+              </div>
+            </div>
+            <div class="col-12">
+              <button class="btn btn-warning" type="submit">Submit form</button>
+            </div>
+          </form>
+      
+        <div class="progressbar ">
+            <h2 class="text-center" >Expense</h2>
+         
+          <div class="progress" role="progressbar" aria-label="Success example" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">
+           <div class="progress-bar bg-success" style="width: 25%">Extra Activites</div>
+          </div>
+           <br>
+          <div class="progress" role="progressbar" aria-label="Info example" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100">
+           <div class="progress-bar bg-info" style="width: 50%">Food</div>
+          </div>
+         <br>
+          <div class="progress" role="progressbar" aria-label="Warning example" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100">
+           <div class="progress-bar bg-warning" style="width: 75%">Accomadation</div>
+          </div>
+          <br>
+          <div class="progress" role="progressbar" aria-label="Danger example" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100">
+           <div class="progress-bar bg-danger" style="width: 100%">Transportation</div>
+         </div>
+      </div> 
+    </div>
+
+    <!-- FOOTER -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
+    <script src="/static/js/bootstrap.js"></script>
+    <script src="/static/dayout.js"></script>
+    <script src="https://smtpjs.com/v3/smtp.js"></script>
+    
+</body>

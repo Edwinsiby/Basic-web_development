@@ -1,0 +1,122 @@
+.body{
+    margin: 0%;
+}
+.container-fluid{
+    padding-left: 5%;
+    padding-right: 5%;
+    background-color: black;   
+}
+.navbar{
+    
+    background-color: black;
+}
+#dayout{
+    background: -webkit-linear-gradient(left,white 45%,orange 40%);
+   -webkit-background-clip: text;
+   -webkit-text-fill-color: transparent;
+}
+.carousel-item{
+    height: 725px;
+    width: 100%;
+    justify-content: center;
+}
+.carousel-caption{
+    position: absolute;
+    top: 37vh;
+    left: 15vw;
+}
+.container{
+    width: 100%;
+    height: 725px;
+    padding: 5%;
+    overflow: hidden;
+}
+.container1{
+    display: flex;
+    padding: 10%;
+}
+.row{
+    align-content: center;
+}
+.contact{
+    width: 100%;
+    display: flex;
+}
+.footer{
+    background-color: black;
+    height: 100px;
+}
+.card-img-top:hover{
+    transform: scale(1.1);
+    transition: all, 0.5s;
+    box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
+
+}
+.card:hover{
+    box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
+}
+.btn{
+    color: orange;
+    background-color: black;
+}
+.flip-box {
+    background-color: transparent;
+    width: 100%;
+    height: 100%;
+    perspective: 1000px;
+  }
+  
+  .flip-box-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transition: transform 1.5s;
+    transform-style: preserve-3d;
+  }
+  
+  .flip-box:hover .flip-box-inner {
+    transform: rotateY(180deg);
+  }
+  
+  .flip-box-front, .flip-box-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+  }
+  
+  .flip-box-front {
+    background-color: #bbb;
+    color: black;
+  }
+  
+  .flip-box-back {
+    margin-top: 10%;
+    color: orange;
+    transform: rotateY(180deg);
+  }
+
+
+
+  /* Day out 2 */
+.slide-container{
+    background-color: aqua;
+    height: 30rem;
+}
+.slide-content{
+    background-color: black;
+    height: 100%;
+
+}
+.cardo-wrapper{
+    width: 18%;
+    height: 100%;
+    background-color: aqua;
+}
+.cardo{
+    background-color:aqua  ;
+    width: 100%;
+    height: 100%;
+}

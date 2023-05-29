@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>dayout</title>
+    <link rel="icon" type="image/png" href="/static/dayout.pics/logo.png">
+    <link rel="stylesheet" href="/static/css/bootstrap.css">
+    <link rel="stylesheet" href="/static/dayout.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
+    <link href="https://fonts.googleapis.com/css?family=Raleway+Dots" rel="stylesheet" type="text/css">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+    <!-- NAVBAR -->
+    <nav class="navbar sticky-top navbar-expand-sm">
+        <div class="container-fluid">
+          <a class="navbar-brand text-white fw-bold" href="#" id="dayout">dayout holidays</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+        </div>
+    </nav>
+
+   <!-- LOGIN PART-->
+
+    <div class="containerr" style="background-color: rgb(32, 176, 192);">
+      <div class="Imagelogin" style="background-color: black; width: 50%;height: 100%;">
+        <img src="/static/dayout.pics/login.img.png" alt="img" width="100%" height="100%">
+      </div>
+      <div class="login" style="background-color: rgb(242, 242, 242); width: 50%;height: 100%;">
+        <form action="/loginpost" method="post">
+          <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label"  >Email address</label>
+            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name = "Email">
+            <div id="emailHelp" class="form-text">{{.Errmail}}</div>
+          </div>
+          <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label"  >Password</label>
+            <input type="password" class="form-control" id="exampleInputPassword1" name = "Password">
+            <div id="emailHelp" class="form-text">{{.Errpass}}</div>
+          </div>
+          <button type="submit" class="btn btn-warning">Sign in</button>
+          
+          <div class="mb-3">
+            <hr>
+            <h6 style="font-size: small;">&nbsp&nbspForgot password?&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp Don’t have an account?</h6>
+            <hr>
+            <div class="d-grid gap-2 col-8 mx-auto">
+
+            <button class="btn-close-white" type="submit" style="border-color:black"> <img src="/static/dayout.pics/googlelogo.png" alt="google" ><a href="/signup">Sign Up with google</a></button>
+            </div>
+          </div>
+        </form>
+      </div>
+      </div>
+
+     
+</body>    

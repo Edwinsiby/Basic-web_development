@@ -1,0 +1,172 @@
+package main
+
+import (
+	"html/template"
+	"net/http"
+
+	"github.com/gin-gonic/gin"
+	"github.com/icza/session"
+)
+
+type UserData struct {
+	userName     string
+	userEmail    string
+	userPassword string
+}
+
+type Invalid struct {
+	Errpass string
+	Errmail string
+}
+
+var list = []UserData{
+	{userName: "Edwin", userEmail: "edwinsiby@gmail.com", userPassword: "edwin"},
+	{userName: "Heisenberg", userEmail: "heisenberg@gmail.com", userPassword: "yocrystalyo"},
+}
+var tpl *template.Template
+var r = gin.Default()
+
+func main() {
+	gin.SetMode(gin.ReleaseMode)
+	r.Static("/static", "./static")
+	tpl, _ = template.ParseGlob("templates/*.html")
+
+	http.HandleFunc("/", indexHandler)
+	http.HandleFunc("/login", appendHandler)
+	http.HandleFunc("/dayout", processHandler)
+	http.HandleFunc("/logout", logoutHandler)
+	http.HandleFunc("/signup", signupHandler)
+	http.HandleFunc("/contactus", contactHandler)
+
+	http.HandleFunc("/admin", adminLoginHandler)
+	http.HandleFunc("/admin/panel", adminPanelHandler)
+	http.ListenAndServe(":8080", nil)
+
+}
+
+func indexHandler(w http.ResponseWriter, r *http.Request) {
+	w.Header().Set("Cache-Control", "no-cache,no-store,must-revalidate")
+	w.Header().Set("Expires", "0")
+
+	sess := session.Get(r)
+	if sess != nil {
+		username := sess.CAttr("userName")
+		tpl.ExecuteTemplate(w, "dayout.html", username)
+	} else {
+		tpl.ExecuteTemplate(w, "login.html", nil)
+	}
+
+}
+
+func appendHandler(w http.ResponseWriter, r *http.Request) {
+	w.Header().Set("Cache-Control", "no-cache,no-store,must-revalidate")
+	w.Header().Set("Expires", "0")
+	var n UserData
+
+	sess := session.Get(r)
+	if sess != nil {
+		http.Redirect(w, r, "/", http.StatusFound)
+	}
+
+	n.userName = r.FormValue("UserName")
+	n.userEmail = r.FormValue("Emailid")
+	n.userPassword = r.FormValue("Password")
+
+	list = append(list, n)
+	http.Redirect(w, r, "/", http.StatusFound)
+}
+
+func processHandler(w http.ResponseWriter, r *http.Request) {
+	w.Header().Set("Cache-Control", "no-cache,no-store,must-revalidate")
+	w.Header().Set("Expires", "0")
+	var s UserData
+	var e Invalid
+	s.userEmail = r.FormValue("Email")
+	s.userPassword = r.FormValue("Password")
+
+	sess := session.Get(r)
+	if sess != nil {
+		username := sess.CAttr("userName")
+		tpl.ExecuteTemplate(w, "dayout.html", username)
+		return
+	} else if s.userEmail != "" {
+
+		for _, v := range list {
+			if s.userEmail == v.userEmail {
+				if s.userPassword == v.userPassword {
+
+					sess := session.NewSessionOptions(&session.SessOptions{CAttrs: map[string]interface{}{
+						v.userName: v.userName,
+						"userName": v.userName,
+					}})
+					session.Add(sess, w)
+
+					http.Redirect(w, r, "/", http.StatusFound)
+					return
+				} else {
+					e.Errpass = "invalid password"
+					tpl.ExecuteTemplate(w, "login.html", e)
+					return
+				}
+			} else {
+				e.Errmail = "invalid email id"
+				tpl.ExecuteTemplate(w, "login.html", e)
+				return
+			}
+
+		}
+	} else {
+		http.Redirect(w, r, "/", http.StatusFound)
+	}
+}
+func signupHandler(w http.ResponseWriter, r *http.Request) {
+	tpl.ExecuteTemplate(w, "signup.html", nil)
+}
+
+func contactHandler(w http.ResponseWriter, r *http.Request) {
+	w.Header().Set("Cache-Control", "no-cache,no-store,must-revalidate")
+	sess := session.Get(r)
+	if sess != nil {
+		username := sess.CAttr("userName")
+		tpl.ExecuteTemplate(w, "contactus.html", username)
+	} else {
+		http.Redirect(w, r, "/", http.StatusFound)
+	}
+}
+
+func logoutHandler(w http.ResponseWriter, r *http.Request) {
+	w.Header().Set("Cache-Control", "no-cache,no-store,must-revalidate")
+	w.Header().Set("Expires", "0")
+	sess := session.Get(r)
+	if sess != nil {
+		session.Remove(sess, w)
+		sess = nil
+		http.Redirect(w, r, "/", http.StatusFound)
+	}
+}
+
+// ADMIN PANEL
+
+func adminLoginHandler(w http.ResponseWriter, r *http.Request) {
+	w.Header().Set("Expires", "0")
+	tpl.ExecuteTemplate(w, "adminlogin.html", nil)
+}
+
+func adminPanelHandler(w http.ResponseWriter, r *http.Request) {
+	w.Header().Set("Cache-Control", "no-cache,no-store,must-revalidate")
+	var n UserData
+	n.userName = r.FormValue("Adminid")
+	n.userPassword = r.FormValue("Password")
+
+	err := "inavlid"
+
+	for _, v := range list {
+		if n.userName == v.userName && n.userPassword == v.userPassword {
+			tpl.ExecuteTemplate(w, "adminpanel.html", nil)
+			return
+		} else {
+			tpl.ExecuteTemplate(w, "adminlogin.html", err)
+		}
+	}
+
+}
