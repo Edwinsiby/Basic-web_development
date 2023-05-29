@@ -23,7 +23,7 @@ func main() {
 	DB.Db.AutoMigrate(&models.User{})
 	router.LoadHTMLGlob("templates/*.html")
 	router.Static("/static", "./static")
-
+// user
 	router.GET("/", Handlers.IndexHandler)
 	router.GET("/signup", Handlers.SignupHandler)
 	router.POST("/signuppost", Handlers.SignupPost)
@@ -31,7 +31,7 @@ func main() {
 	router.POST("/loginpost", Handlers.LoginPost)
 	router.GET("/home", Handlers.HomeHandler)
 	router.GET("/logout", Handlers.LogoutHandler)
-
+// admin
 	router.GET("/admin", Handlers.AdminHandler)
 	router.GET("/admin/edit", Handlers.EditHandler)
 	router.GET("/admin/delete", Handlers.DeleteHandler)
